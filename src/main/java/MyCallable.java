@@ -1,6 +1,6 @@
 import java.util.concurrent.Callable;
 
-public class MyCallable implements Callable<String> {
+public class MyCallable implements Callable<Integer> {
     private String name;
     private int time;
 
@@ -14,11 +14,11 @@ public class MyCallable implements Callable<String> {
     }
 
     @Override
-    public String call() throws Exception {
+    public Integer call() throws Exception {
         for (int i = 0; i < time; i++) {
             Thread.sleep(3000);
             System.out.printf("Я поток %s. Всем привет!\n", this.getName());
         }
-        return String.format("Я поток %s. отправил %d", this.getName(), time);
+        return time;
     }
 }
